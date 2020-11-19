@@ -19,17 +19,13 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@master
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Delete modules
-      run: rm -rf node_modules
-    - name: Clear cache
-      run: npm cache clean --force
     - name: Install dependencies
       run: npm install
-    - name: Build
+    - name: Builds
       run: node index.js
       
