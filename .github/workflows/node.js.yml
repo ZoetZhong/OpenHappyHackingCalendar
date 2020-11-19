@@ -24,6 +24,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Delete modules
+      run: rm -rf node_modules
+    - name: Clear cache
+      run: npm cache clean --force
     - name: Install dependencies
       run: npm install
     - name: Build
